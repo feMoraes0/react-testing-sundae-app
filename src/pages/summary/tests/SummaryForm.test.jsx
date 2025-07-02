@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SummaryForm from "../SummaryForm";
+import { expect } from "vitest";
 
 describe("SummaryForm unit tests", () => {
   it("Initial state", () => {
@@ -22,5 +23,21 @@ describe("SummaryForm unit tests", () => {
     await user.click(checkboxElement);
     expect(checkboxElement).not.toBeChecked();
     expect(buttonElement).toBeDisabled();
+  });
+
+  it("popover responds hover", async () => {
+    const user = userEvent.setup();
+    render(<SummaryForm />);
+
+    const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);
+    expect(nullPopover).not.toBeInTheDocument();
+
+    const termsAndConditions = screen.getByText(/terms and conditions/i);
+    await user.hover(termsAndConditions);
+    const popover = screen.getByText(/no ice cream will actually be delivered/i);
+    expect(popover).toBeInTheDocument();
+
+    await user.unhover(termsAndConditions);
+    expect(popover).not.toBeInTheDocument();
   });
 });
