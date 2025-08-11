@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 // vitest.setup.ts
 import { beforeAll, afterEach, afterAll } from "vitest";
-import { server } from "./mocks/node.js";
+import { server } from "./mocks/server.js";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
