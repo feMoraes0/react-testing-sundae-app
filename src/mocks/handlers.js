@@ -13,5 +13,5 @@ export const handlers = [
       { name: "M&Ms", imagePath: "/images/m-and-m.png" },
       { name: "Hot Fudge", imagePath: "/images/hot-fudge.png" },
     ]);
-  })
+  }),
 ];
