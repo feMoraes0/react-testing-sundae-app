@@ -38,14 +38,14 @@ describe("SummaryForm unit tests", () => {
     render(<SummaryForm />);
 
     const nullPopover = screen.queryByText(
-      /no ice cream will actually be delivered/i
+      /no ice cream will actually be delivered/i,
     );
     expect(nullPopover).not.toBeInTheDocument();
 
     const termsAndConditions = screen.getByText(/terms and conditions/i);
     await user.hover(termsAndConditions);
     const popover = screen.getByText(
-      /no ice cream will actually be delivered/i
+      /no ice cream will actually be delivered/i,
     );
     expect(popover).toBeInTheDocument();
 
