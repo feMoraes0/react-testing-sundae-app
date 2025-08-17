@@ -19,7 +19,13 @@ export function OrderDetailsProvider(props) {
 
   function updateItemCount(itemName, newItemCount, optionType) {
     setOptionsCounts((prev) => {
-      prev[optionType][itemName] = newItemCount;
+      return {
+        ...prev,
+        [optionType]: {
+          ...prev[optionType],
+          [itemName]: newItemCount,
+        },
+      };
     });
   }
 
