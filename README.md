@@ -2,6 +2,17 @@
 
 Created for the Udemy course [React Testing Library with Jest / Vitest](https://www.udemy.com/course/react-testing-library)
 
+## Debugging Tips
+
+- `screen.debug()`: print out what the DOM looks like during your test.
+- `logRoles()`: print out all the available roles.
+  - usage:
+  ```javascript
+    const { container } = render(...);
+    logRoles(container);
+    ...
+  ```
+
 ## How this project was created
 
 This project was created using this command:
